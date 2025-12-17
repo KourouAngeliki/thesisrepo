@@ -1,0 +1,13 @@
+CSV_Column_Name,Ditto_Property_Name
+Temperature_C,tempC
+Vibration_mms,vibMms
+Sound_dB,dB
+Oil_Level_pct,oilLvlpct
+Coolant_Level_pct,coolLvlpct
+Power_Consumption_kW,kW
+AI_Supervision,aiSuperv
+Laser_Intensity,laserIntensity
+Hydraulic_Pressure_bar,hydrPressure
+Coolant_Flow_L_min,coolLvlMin
+Heat_Index,heatIndex
+AI_Override_Events,aiOverrideEvents

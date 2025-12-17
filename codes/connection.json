@@ -1,0 +1,54 @@
+{
+  "id": "08428db1-d91d-4e94-b4cf-5b4f2eb7c660",
+  "name": "MQTT 5",
+  "connectionType": "mqtt-5",
+  "connectionStatus": "open",
+  "uri": "tcp://mqtt5:1883",
+  "sources": [
+    {
+      "addresses": [
+        "testtopic/#"
+      ],
+      "consumerCount": 1,
+      "qos": 1,
+      "authorizationContext": [
+        "nginx:ditto"
+      ],
+      "headerMapping": {
+        "reply-to": "{{header:reply-to}}",
+        "content-type": "{{header:content-type}}",
+        "correlation-id": "{{header:correlation-id}}"
+      },
+      "replyTarget": {
+        "address": "{{header:reply-to}}",
+        "headerMapping": {
+          "content-type": "{{header:content-type}}",
+          "correlation-id": "{{header:correlation-id}}"
+        },
+        "expectedResponseTypes": [
+          "response",
+          "error"
+        ],
+        "enabled": true
+      }
+    }
+  ],
+  "targets": [
+    {
+      "address": "ditto/{{thing:id}}",
+      "topics": [
+        "_/_/things/twin/events"
+      ],
+      "qos": 1,
+      "authorizationContext": [
+        "nginx:ditto"
+      ],
+      "headerMapping": {}
+    }
+  ],
+  "clientCount": 1,
+  "failoverEnabled": true,
+  "validateCertificates": true,
+  "processorPoolSize": 1,
+  "tags": []
+}

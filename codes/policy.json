@@ -1,0 +1,45 @@
+{
+  "policyId": "factory:mech.Policy",
+  "imports": {},
+  "entries": {
+    "default": {
+      "subjects": {
+        "nginx:ditto": {
+          "type": "password"
+        }
+      },
+      "resources": {
+        "thing:/": {
+          "grant": [
+            "READ","WRITE"],
+          "revoke": []
+        },
+        "policy:/": {
+          "grant": ["READ","WRITE"],
+          "revoke": []
+        },
+        "message:/": {
+          "grant": ["READ","WRITE"],
+          "revoke": []
+        }
+      },
+      "importable": "implicit"
+    },
+    "mqttcli": {
+      "subjects": {
+        "mqtt:sensors-to-ditto": {
+          "type": "ditto"
+        }
+      },
+      "resources": {
+        "thing:/features/sensors/properties/*": {"grant": ["READ", "WRITE"],
+          "revoke": []
+        },
+        "message:/": {"grant": ["READ", "WRITE" ],
+          "revoke": []
+        }
+      },
+      "importable": "implicit"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "thingId": "machines:furnace",
+  "policyId": "factory:mech.Policy",
+  "definition": "fac:furnace:0.0.1",
+  "attributes": {
+    "type": "Furnace"
+  },
+  "features": {
+    "sensors": {
+      "properties": {
+        "tempC": 53.1,
+        "vibMms": 3.76,
+        "dB": 79.14,
+        "oilLvlpct": 79.12,
+        "coolLvlpct": 45.76,
+        "kW": 60.37,
+        "aiSuperv": true,
+        "heatIndex": 528.08,
+        "aiOverrideEvents": 4
+      }
+    }
+  }
+}
