@@ -5,6 +5,7 @@ import time
 import os
 
 
+
 #read the dataset you want to make into a synthetic sensor
 df = pd.read_csv("dataset/individual_machines/furnace.csv")
 mapping_df = pd.read_csv("dataset/dictionary.csv") #the dictionary for the .json file mapping
@@ -15,7 +16,7 @@ csv_to_ditto_map = dict(zip(mapping_df["CSV_Column_Name"], mapping_df["Ditto_Pro
 mqttc = mqtt.Client(client_id="mqttcli", protocol=mqtt.MQTTv5)
 mqttc.connect("localhost", 1883) #if its not working try localhost or this "127.0.0.1"
 mqttc.loop_start()
-#mqttc.username_pw_set("nginx:ditto", "<password>") not needed
+
 
 props = mqtt.Properties(mqtt.PacketTypes.PUBLISH)
 props.UserProperty = [("content-type", "application/vnd.eclipse.ditto+json")]

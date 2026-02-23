@@ -1,0 +1,22 @@
+{
+    "thingId": "machine:xrayInspector",
+    "policyId": "factory:mech.Policy",
+    "definition": "fac:xrayInspector:0.0.1",
+    "attributes": {
+        "type": "XRay Inspector"
+    },
+    "features": {
+        "sensors": {
+            "properties": {
+                "tempC": 105.2,
+                "vibMms": 20.48,
+                "dB": 56.93,
+                "oilLvlpct": 66.46,
+                "coolLvlpct": 86.63,
+                "kW": 157.37,
+                "aiSuperv": true,
+                "aiOverrideEvents": 2
+            }
+        }
+    }
+}

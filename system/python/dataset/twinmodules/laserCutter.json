@@ -1,0 +1,23 @@
+{
+    "thingId": "machine:laserCutter",
+    "policyId": "factory:mech.Policy",
+    "definition": "fac:laserCutter:0.0.1",
+    "attributes": {
+        "type": "Laser Cutter"
+    },
+    "features": {
+        "sensors": {
+            "properties": {
+                "tempC": 105.2,
+                "vibMms": 20.48,
+                "dB": 56.93,
+                "oilLvlpct": 66.46,
+                "coolLvlpct": 86.63,
+                "kW": 157.37,
+                "aiSuperv": true,
+                "laserIntensity": 71.55,
+                "aiOverrideEvents": 2
+            }
+        }
+    }
+}

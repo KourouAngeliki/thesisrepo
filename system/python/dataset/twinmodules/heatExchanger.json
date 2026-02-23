@@ -1,0 +1,23 @@
+{
+    "thingId": "machine:heatExchanger",
+    "policyId": "factory:mech.Policy",
+    "definition": "fac:heatExchanger:0.0.1",
+    "attributes": {
+        "type": "Heat Exchanger"
+    },
+    "features": {
+        "sensors": {
+            "properties": {
+                "tempC": 105.2,
+                "vibMms": 20.48,
+                "dB": 56.93,
+                "oilLvlpct": 66.46,
+                "coolLvlpct": 86.63,
+                "kW": 157.37,
+                "aiSuperv": true,
+                "heatIndex": 455.35,
+                "aiOverrideEvents": 2
+            }
+        }
+    }
+}
