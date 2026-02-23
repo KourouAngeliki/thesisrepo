@@ -1,5 +1,5 @@
 {
-  "id": "08428db1-d91d-4e94-b4cf-5b4f2eb7c660",
+  "id": "485c8bd6-a7b8-4dc8-8baf-a4714c044379",
   "name": "MQTT 5",
   "connectionType": "mqtt-5",
   "connectionStatus": "open",
@@ -19,6 +19,9 @@
         "content-type": "{{header:content-type}}",
         "correlation-id": "{{header:correlation-id}}"
       },
+      "payloadMapping": [
+        "Ditto"
+      ],
       "replyTarget": {
         "address": "{{header:reply-to}}",
         "headerMapping": {

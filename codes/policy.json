@@ -11,15 +11,23 @@
       "resources": {
         "thing:/": {
           "grant": [
-            "READ","WRITE"],
+            "READ",
+            "WRITE"
+          ],
           "revoke": []
         },
         "policy:/": {
-          "grant": ["READ","WRITE"],
+          "grant": [
+            "READ",
+            "WRITE"
+          ],
           "revoke": []
         },
         "message:/": {
-          "grant": ["READ","WRITE"],
+          "grant": [
+            "READ",
+            "WRITE"
+          ],
           "revoke": []
         }
       },
@@ -32,10 +40,18 @@
         }
       },
       "resources": {
-        "thing:/features/sensors/properties/*": {"grant": ["READ", "WRITE"],
+        "thing:/features/sensors/properties/*": {
+          "grant": [
+            "READ",
+            "WRITE"
+          ],
           "revoke": []
         },
-        "message:/": {"grant": ["READ", "WRITE" ],
+        "message:/": {
+          "grant": [
+            "READ",
+            "WRITE"
+          ],
           "revoke": []
         }
       },

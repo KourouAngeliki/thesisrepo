@@ -37,7 +37,7 @@ for index, row in df.iterrows():
 
     # Construct the full Ditto Protocol message
     payload_base = {
-        "topic": "machines/furnace/things/twin/commands/modify", # Fixed typo: 'twion' -> 'twin'
+        "topic": "machines/furnace/things/twin/commands/modify", 
         "path": "/features/sensors/properties",
         "value": sensors_value
     }
@@ -50,7 +50,7 @@ for index, row in df.iterrows():
     # Publish mqttc.publish(topic, payload, qos=1)
     mqttc.publish(topic, payload, qos=1, properties=props)
     print(f"Row {index} published to {topic}")
-    time.sleep(5)
+    time.sleep(2)
 
 # Clean shutdown
 mqttc.loop_stop()
