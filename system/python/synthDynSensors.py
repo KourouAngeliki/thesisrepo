@@ -28,36 +28,41 @@ while True:
     sensor = random.sample(names,k=1)[0]
     data_df = pd.read_csv(f"./dataset/individual_machines/{sensor}.csv")
 
-    for index, row in data_df.iterrows():
+    rows_num = data_df.shape[0]
+    #print(rows_num)
+    idx = random.randint(0, rows_num)
+
+    row = data_df.iloc[idx]
+
+    #for index, row in data_df.iterrows():
     # Build the 'value' dictionary dynamically for this specific row
 
-        sensors_value = {}
+    sensors_value = {}
         
-        for csv_col, ditto_col in csv_to_ditto_map.items():
-            if csv_col in row:
-                val = row[csv_col]
-                if pd.notna(val):
-                    # Convert numpy types to native Python types for JSON serialization
-                    if hasattr(val, 'item'):
-                        val = val.item()
-                    sensors_value[ditto_col] = val
+    for csv_col, ditto_col in csv_to_ditto_map.items():
+        if csv_col in row:
+            val = row[csv_col]
+            if pd.notna(val):
+                # Convert numpy types to native Python types for JSON serialization
+                if hasattr(val, 'item'):
+                    val = val.item()
+                sensors_value[ditto_col] = val
 
-        # Construct the full Ditto Protocol message
-        payload_base = {
-            "topic": f"machines/{sensor}/things/twin/commands/modify", 
-            "path": "/features/sensors/properties",
-            "value": sensors_value
-        }
+    # Construct the full Ditto Protocol message
+    payload_base = {
+        "topic": f"machine/{sensor}/things/twin/commands/modify", 
+        "path": "/features/sensors/properties",
+        "value": sensors_value   
+    }
 
-        print(payload_base)
+    payload = json.dumps(payload_base)
+    print(payload)
+    topic = f"testtopic/machine/{sensor}/things/twin/commands/modify"
 
-        payload = json.dumps(payload_base)
-        topic = f"testtopic/machines/{sensor}/things/twin/commands/modify"
-
-        # Publish mqttc.publish(topic, payload, qos=1)
-        mqttc.publish(topic, payload, qos=1, properties=props)
-        print(f"Row {index} published to {topic}")
-        time.sleep(2)
+    # Publish mqttc.publish(topic, payload, qos=1)
+    mqttc.publish(topic, payload, qos=1, properties=props)
+    print(f"Row {idx}: Published to {topic}")
+    #time.sleep(2)
 
 # Clean shutdown
 mqttc.loop_stop()

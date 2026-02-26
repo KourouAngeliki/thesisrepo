@@ -22,7 +22,6 @@ props = mqtt.Properties(mqtt.PacketTypes.PUBLISH)
 props.UserProperty = [("content-type", "application/vnd.eclipse.ditto+json")]
 
 
-
 for index, row in df.iterrows():
     # Build the 'value' dictionary dynamically for this specific row
     sensors_value = {}
@@ -38,7 +37,7 @@ for index, row in df.iterrows():
 
     # Construct the full Ditto Protocol message
     payload_base = {
-        "topic": "machines/furnace/things/twin/commands/modify", 
+        "topic": "machine/furnace/things/twin/commands/modify", 
         "path": "/features/sensors/properties",
         "value": sensors_value
     }
@@ -46,7 +45,7 @@ for index, row in df.iterrows():
     print(payload_base)
 
     payload = json.dumps(payload_base)
-    topic = "testtopic/machines/furnace/things/twin/commands/modify"
+    topic = "testtopic/machine/furnace/things/twin/commands/modify"
 
     # Publish mqttc.publish(topic, payload, qos=1)
     mqttc.publish(topic, payload, qos=1, properties=props)
