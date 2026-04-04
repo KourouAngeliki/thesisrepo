@@ -1,0 +1,18 @@
+# Data Manipulation & Analysis
+numpy
+pandas
+
+# Visualization
+matplotlib
+
+# Machine Learning & Deep Learning
+scikit-learn
+tensorflow
+hdbscan
+
+# Networking & APIs
+requests
+paho-mqtt
+
+# Utilities
+# (os, json, time, random, and datetime are built-in and don't need to be listed)
